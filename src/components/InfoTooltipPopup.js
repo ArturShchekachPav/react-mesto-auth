@@ -22,7 +22,10 @@ const InfoTooltipPopup = ({
 			containerElement="div"
 			containerClass="popup__container"
 		>
-			<InfoTooltip status={status}/>
+			<InfoTooltip status={status} message={status ?
+				'Вы успешно зарегистрировались!' :
+				('Что-то пошло не так!\n' +
+					'Попробуйте ещё раз.')}/>
 		</Popup>
 	);
 };
