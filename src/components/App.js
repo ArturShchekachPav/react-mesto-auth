@@ -168,9 +168,6 @@ function App() {
 	function handleCardDeleteClick(card) {
 		setIsConfirmDeletePopupOpen(true);
 		setCardToDelete(card);
-		document.addEventListener('keydown',
-			handleEscape
-		);
 	}
 	
 	function handleCardDelete() {
@@ -252,30 +249,18 @@ function App() {
 	
 	const handleEditAvatarClick = () => {
 		setIsEditAvatarPopupOpen(true);
-		document.addEventListener('keydown',
-			handleEscape
-		);
 	};
 	
 	const handleEditProfileClick = () => {
 		setIsEditProfilePopupOpen(true);
-		document.addEventListener('keydown',
-			handleEscape
-		);
 	};
 	
 	const handleAddPlaceClick = () => {
 		setIsAddPlacePopupOpen(true);
-		document.addEventListener('keydown',
-			handleEscape
-		);
 	};
 	
 	const handleCardClick = (card) => {
 		setSelectedCard(card);
-		document.addEventListener('keydown',
-			handleEscape
-		);
 	};
 	
 	function handleSingOut() {
@@ -292,17 +277,7 @@ function App() {
 		setSelectedCard({});
 		setIsConfirmDeletePopupOpen(false);
 		setIsInfoTooltipOpen(false);
-		
-		document.removeEventListener('keydown',
-			handleEscape
-		);
 	};
-	
-	function handleEscape(e) {
-		if (e.key === 'Escape') {
-			closeAllPopups();
-		}
-	}
 	
 	const handleLogin = () => {
 		setIsLoggedIn(true);
@@ -434,7 +409,11 @@ function App() {
 					<Route
 						path="/*"
 						element={
-							<h1>Not found</h1>
+							<main className="main login page__login">
+								<div className="login__container">
+									<h1 className="login__title">404 Not found</h1>
+								</div>
+							</main>
 						}
 					/>
 				</Routes>

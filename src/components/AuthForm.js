@@ -1,9 +1,3 @@
-import {
-	useEffect,
-	useRef
-} from 'react';
-import * as validator from '../utils/FormValidator';
-
 const AuthForm = ({
 	onSubmit,
 	setFormValue,
@@ -11,18 +5,6 @@ const AuthForm = ({
 	formValue,
 	isLoading
 }) => {
-	
-	const formRef = useRef();
-	
-	useEffect(() => {
-			const formValidator = new validator.FormValidator(validator.loginFormConfig,
-				formRef.current
-			);
-			
-			formValidator.enableValidation();
-		},
-		[]
-	);
 	
 	const handleChange = (e) => {
 		const {
@@ -48,7 +30,6 @@ const AuthForm = ({
 			className="login__form"
 			noValidate
 			onSubmit={handleSubmit}
-			ref={formRef}
 		>
 			<div className="login__form-item">
 				<input

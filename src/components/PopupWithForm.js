@@ -1,8 +1,3 @@
-import {
-	useEffect,
-	useRef
-} from 'react';
-import * as validator from '../utils/FormValidator';
 import Popup from './Popup';
 
 function PopupWithForm({
@@ -14,18 +9,6 @@ function PopupWithForm({
 	children,
 	onSubmit
 }) {
-	
-	const formRef = useRef();
-	
-	useEffect(() => {
-			const formValidator = new validator.FormValidator(validator.formConfig,
-				formRef.current
-			);
-			
-			formValidator.enableValidation();
-		},
-		[]
-	);
 	
 	return (
 		<Popup
@@ -40,7 +23,6 @@ function PopupWithForm({
 				className={`popup__form popup__form_${name}`}
 				noValidate
 				onSubmit={onSubmit}
-				ref={formRef}
 			>
 				{children}
 				<button
